@@ -1,0 +1,39 @@
+### Virtual enviroments
+.python-version
+venv/
+.idea/*
+### Configurations
+.env
+logs/*
+!logs/__init__.py
+
+
+### Python
+__pycache__/
+*.pyc
+
+
+### IDES
+.vscode
+
+
+### OSx
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+
+
+### Others
+*.sqlite3
+*.log
+
+static/
+media/
+*.rdb
+
+celerybeat-schedule*
+celerybeat.pid
+
+
+tests/
+enviroments/

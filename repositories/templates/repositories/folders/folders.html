@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="3" style="text-align: right;">
+                <a href="{% url 'repositories:folder_new' locker_pk=kwargs.locker_pk %}">Nuevo</a>
+                <a href="{% url 'repositories:lockers' %}">Volver</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <th>Casillero</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for folder in folders %}
+        <tr>
+            <td>{{ folder.name }}</td>
+            <td>{{ folder.locker.name }}</td>
+            <td>
+                <a href="{% url 'repositories:documents' locker_pk=kwargs.locker_pk folder_pk=folder.pk %}" >Documentos</a>
+                <a href="{% url 'repositories:folder_edit' locker_pk=kwargs.locker_pk pk=folder.pk %}">Editar</a>
+                <a href="{% url 'repositories:folder_delete' locker_pk=kwargs.locker_pk pk=folder.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

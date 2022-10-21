@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="3" style="text-align: right;">
+                <a href="{% url 'repositories:document_new' locker_pk=kwargs.locker_pk folder_pk=kwargs.folder_pk %}">Nuevo</a>
+                <a href="{% url 'repositories:folders' locker_pk=kwargs.locker_pk %}">Volver</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Carpeta</th>
+            <th>Url</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for document in documents %}
+        <tr>
+            <td>{{ document.name }}</td>
+            <td>{{ document.document_type }}</td>
+            <td>{{ document.folder }}</td>
+            <td>{{ document.source }}</td>
+            <td>
+                <a href="{% url 'repositories:document_edit' locker_pk=kwargs.locker_pk folder_pk=kwargs.folder_pk pk=document.pk %}">Editar</a>
+                <a href="{% url 'repositories:document_delete' locker_pk=kwargs.locker_pk folder_pk=kwargs.folder_pk pk=document.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

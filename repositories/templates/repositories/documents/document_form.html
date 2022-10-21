@@ -1,0 +1,6 @@
+<a href="{% url 'repositories:documents' locker_pk=kwargs.locker_pk folder_pk=kwargs.folder_pk %}">Volver</a>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Send message">
+</form>
